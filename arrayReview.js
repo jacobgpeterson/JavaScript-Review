@@ -3,8 +3,11 @@ var threeItems = [1,2,3];
 //alert the result of your function
 
   //code here
-
-
+var last = function(arr) {
+	for(var i = 0; i < arr.length; i++)
+		return arr[arr.length -1];
+}
+last(threeItems);
 
 /* NEXT PROBLEM - NEXT PROBLEM - NEXT PROBLEM */
 
@@ -14,7 +17,13 @@ var threeItems = [1,2,3];
 var evenArray = [1,2,3,6,22,98,45,23,22,12];
 
   //code here
-
+var separate = function(arr){
+	for(var i = 0; i < arr.length; i++) {
+		if(arr[i] %2 !== 0){
+			arr.splice(i, 1);
+		}
+	}
+}
 
 /* NEXT PROBLEM - NEXT PROBLEM - NEXT PROBLEM */
 
@@ -27,8 +36,18 @@ var getRandomArbitrary = function() {
 var randomArray = [0,3,4,5,6,7,9,14,17,24,25,26,29,30];
 
   //code here
-
-
+var finder = function(arr, find) {
+	var result = false;
+	for (var i = 0; i < arr.length; i++) {
+		if(arr[i] === find) {
+			return true;
+		}
+	}
+	return result;
+}
+var numToFind = getRandomArbitrary();
+var found = finder(randomArray, numToFind);
+console.log(found);
 /* NEXT PROBLEM - NEXT PROBLEM - NEXT PROBLEM */
 
 
@@ -38,7 +57,9 @@ var first = [1,2,3,4,5];
 var second;
 
   //code here
-
+second = [];
+second.push(first);
+second.push(6, 7);
 alert(first) //[1,2,3,4,5];
 alert(second) //[1,2,3,4,5,6,7];
 
@@ -52,8 +73,14 @@ alert(second) //[1,2,3,4,5,6,7];
 var sentence = "Dev Mountain is the best"
 
   //code here
-
-
+var longest = function(str){
+	var words = str.replace(/[^A-Za-z\s]/g, "");
+	var final = words.split(" ").sort(function(a, b){
+		return b.length - a.length;
+	});
+	return final[0];
+}
+longest(sentence);
 /* NEXT PROBLEM - NEXT PROBLEM - NEXT PROBLEM */
 
 
@@ -63,7 +90,11 @@ var myPoem = 'What is a jQuery but a misunderstood object?'
 //What is a jQuery but a misunderstood object? --> What Is A JQuery But A Misunderstood Object?
 
   //code here
-
+var capitalize = function(str) {
+	return str.replace(/\w\S*/g, function(txt){
+		return txt.charAt(0).toUpperCase() + txt.substr(1).toLowerCase();
+	});
+}
 
 
 /* NEXT PROBLEM - NEXT PROBLEM - NEXT PROBLEM */
@@ -72,3 +103,10 @@ var myPoem = 'What is a jQuery but a misunderstood object?'
 
 var theOdyssey = "function expression or function declaration? Tis an obvious choice";
 //Write a function called vowelCounter that takes in a string (theOdyssey) and returns how many vowels are in that string.
+
+var vowelCounter = function(str) {
+	return --(str.split(/[aeiou]/).length);
+}
+
+
+
